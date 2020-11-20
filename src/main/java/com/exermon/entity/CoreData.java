@@ -8,13 +8,14 @@ import javax.persistence.*;
 /**
  * 核心数据类型
  */
-@Getter
-@Setter
+
+@Getter @Setter @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class CoreData extends BaseData {
 
     @Column(nullable = false)
-    public String name;
+    protected String name;
     @Column(length = 512)
-    public String description;
+    protected String description;
 
 }

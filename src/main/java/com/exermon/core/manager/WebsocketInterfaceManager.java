@@ -19,6 +19,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.exermon.core.annotation.WebSocketMapping;
 import com.exermon.core.exception.*;
 
+import javax.persistence.Entity;
+
 /**
  * 函数信息
  */
@@ -64,9 +66,10 @@ public class WebsocketInterfaceManager extends ApplicationObjectSupport implemen
             var attr = type.getAnnotation(WebSocketMapping.class);
             if (attr == null) continue;
 
-            System.out.printf("Scanning: %s (%s)\n", value, type);
+            System.out.printf("Scanning: %s\n", value);
             registerControllerInterfaces(attr.value(), type, value);
         }
+        System.out.println("Scanning finished!");
     }
 
     /**

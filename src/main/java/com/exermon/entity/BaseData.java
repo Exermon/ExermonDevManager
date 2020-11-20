@@ -8,12 +8,11 @@ import lombok.Setter;
 /**
  * 基本数据类型
  */
-@Getter
-@Setter
+@Getter @Setter @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class BaseData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    protected Integer id;
 }
